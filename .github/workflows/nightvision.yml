@@ -3,6 +3,9 @@ name: Test Case - Java Spring App
 on:
   push:
   workflow_dispatch:
+
+env:
+  NIGHTVISION_TOKEN: ${{ secrets.NIGHTVISION_TOKEN }}
   
 jobs:
   test:
