@@ -1,4 +1,4 @@
-name: Test Case - JavaSpringVulny
+name: Test Case - Java Spring App
 
 on:
   push:
@@ -8,17 +8,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Code
+      - name: (1) Clone Code
         uses: actions/checkout@v3
         
-      - name: Start app
+      - name: (2) Start app
         run: docker-compose up -d; sleep 10
       
-      - name: Install NightVision
+      - name: (3) Install NightVision
         run: make install-cli
 
-      - name: Run API Envy
+      - name: (4) Run API Envy
         run: nightvision extract-api-docs ./ -u https://localhost:9000
       
-      - name: Scan the API
+      - name: (5) Scan the API
         run: nightvision scan --url https://localhost:9000
