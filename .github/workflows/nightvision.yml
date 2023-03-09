@@ -21,7 +21,7 @@ jobs:
         run: make install-cli
 
       - name: (4) Run API Envy
-        run: nightvision extract-api-docs ./ -u https://localhost:9000
+        run: nightvision extract-api-docs ./ -u https://localhost:9000 --verbose
       
       - name: (5) Scan the API
         run: nightvision scan --url https://localhost:9000
