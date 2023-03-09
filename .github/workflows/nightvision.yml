@@ -24,4 +24,4 @@ jobs:
         run: docker-compose up -d; sleep 10
 
       - name: (5) Scan the API
-        run: nightvision scan --url https://localhost:9000
+        run: nightvision scan https://localhost:9000
