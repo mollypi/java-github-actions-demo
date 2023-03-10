@@ -1,0 +1,538 @@
+components:
+  schemas:
+    AdminController:
+      description: 'Class AdminController: src/main/java/hawk/controller/AdminController.java~~16'
+      properties:
+        userSearchService:
+          $ref: '#/components/schemas/UserSearchService'
+      type: object
+    Application:
+      description: 'Class Application: src/main/java/hawk/Application.java~~19'
+      properties:
+        dbUrl:
+          type: string
+      type: object
+    AuthenticationRequest:
+      description: 'Class AuthenticationRequest: src/main/java/hawk/api/AuthenticationRequest.java~~14'
+      properties:
+        password:
+          type: string
+        tenant:
+          type: string
+        username:
+          type: string
+      type: object
+    DBInterceptor:
+      description: 'Class DBInterceptor: src/main/java/hawk/interceptor/DBInterceptor.java~~20'
+      properties:
+        jpaProperties:
+          description: 'Unknown type: org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
+          type: object
+      type: object
+    ExtraAuthenticationRequest:
+      description: 'Class ExtraAuthenticationRequest: src/main/java/hawk/api/ExtraAuthenticationRequest.java~~14'
+      properties:
+        loginCode:
+          type: string
+        password:
+          type: string
+        remember:
+          type: string
+        username:
+          type: string
+      type: object
+    Item:
+      description: 'Class Item: src/main/java/hawk/entity/Item.java~~9'
+      properties:
+        description:
+          type: string
+        id:
+          description: Java long
+          format: int64
+          type: integer
+        name:
+          type: string
+      type: object
+    JwtConfigurer:
+      description: 'Class JwtConfigurer: src/main/java/hawk/api/jwt/JwtConfigurer.java~~8'
+      properties:
+        jwtTokenProvider:
+          $ref: '#/components/schemas/JwtTokenProvider'
+      type: object
+    JwtFilter:
+      description: 'Class JwtFilter: src/main/java/hawk/api/jwt/JwtFilter.java~~16'
+      properties:
+        jwtTokenProvider:
+          $ref: '#/components/schemas/JwtTokenProvider'
+      type: object
+    JwtTokenProvider:
+      description: 'Class JwtTokenProvider: src/main/java/hawk/api/jwt/JwtTokenProvider.java~~19'
+      properties:
+        secretKey:
+          type: string
+        validityInMilliseconds:
+          description: Java long
+          format: int64
+          type: integer
+      type: object
+    LoginController:
+      description: 'Class LoginController: src/main/java/hawk/controller/LoginController.java~~33'
+      properties:
+        loginCodes:
+          description: 'Original type: Map<String, String>'
+          items:
+            description: Map<String, String>
+            type: object
+          type: array
+      type: object
+    PayloadController:
+      description: 'Class PayloadController: src/main/java/hawk/controller/PayloadController.java~~19'
+      properties:
+        payloadCount:
+          type: integer
+        startPayloadSize:
+          type: integer
+      type: object
+    Search:
+      description: 'Class Search: src/main/java/hawk/form/Search.java~~4'
+      properties:
+        searchText:
+          type: string
+      type: object
+    SearchController:
+      description: 'Class SearchController: src/main/java/hawk/controller/SearchController.java~~18'
+      properties:
+        entityManager:
+          description: 'Unknown type: javax.persistence.EntityManager'
+          type: object
+        repo:
+          description: 'Unknown type: hawk.repos.ItemsRepo'
+          type: object
+        searchService:
+          $ref: '#/components/schemas/SearchService'
+      type: object
+    SearchService:
+      description: 'Class SearchService: src/main/java/hawk/service/SearchService.java~~19'
+      properties:
+        entityManager:
+          description: 'Unknown type: javax.persistence.EntityManager'
+          type: object
+      type: object
+    TokenFilter:
+      description: 'Class TokenFilter: src/main/java/hawk/api/token/TokenFilter.java~~7'
+      properties:
+        authHeaderName:
+          type: string
+      type: object
+    TokenWebSecurityConfigurationAdapter:
+      description: 'Class TokenWebSecurityConfigurationAdapter: src/main/java/hawk/MultiHttpSecurityConfig.java~~63'
+      properties:
+        authHeaderName:
+          type: string
+        authHeaderValue:
+          type: string
+      type: object
+    User:
+      description: 'Class User: src/main/java/hawk/entity/User.java~~19'
+      properties:
+        description:
+          type: string
+        id:
+          description: Java long
+          format: int64
+          type: integer
+        name:
+          type: string
+        tenantId:
+          type: string
+      type: object
+    UserSearchService:
+      description: 'Class UserSearchService: src/main/java/hawk/service/UserSearchService.java~~17'
+      properties:
+        entityManager:
+          description: 'Unknown type: javax.persistence.EntityManager'
+          type: object
+      type: object
+    UserService:
+      description: 'Class UserService: src/main/java/hawk/service/UserService.java~~17'
+      properties:
+        entityManager:
+          description: 'Unknown type: javax.persistence.EntityManager'
+          type: object
+        userRepo:
+          description: 'Unknown type: hawk.repos.UserRepo'
+          type: object
+      type: object
+info:
+  description: autogenerated by Nightvision
+  title: NimblerSecurity/java-github-actions-demo//javaspringvulny
+  version: "0.1"
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      description: src/main/java/hawk/controller/IndexController.java~~10
+      responses:
+        default:
+          description: Default response
+    summary: path /
+  /admin:
+    get:
+      description: src/main/java/hawk/controller/AdminController.java~~20
+      responses:
+        default:
+          description: Default response
+    summary: path /admin
+  /admin/companies:
+    get:
+      description: src/main/java/hawk/controller/AdminController.java~~32
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/companies
+  /admin/payload/{size}:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~30
+      parameters:
+      - description: path parameter
+        in: path
+        name: size
+        required: true
+        schema:
+          type: integer
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/payload/{size}
+  /admin/payload/stream/{size}:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~57
+      parameters:
+      - description: path parameter
+        in: path
+        name: size
+        required: true
+        schema:
+          type: integer
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/payload/stream/{size}
+  /admin/payloads:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~45
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/payloads
+  /admin/search:
+    get:
+      description: src/main/java/hawk/controller/AdminController.java~~38
+      responses:
+        default:
+          description: Default response
+    post:
+      description: src/main/java/hawk/controller/AdminController.java~~46
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Search'
+        required: true
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/search
+  /admin/users:
+    get:
+      description: src/main/java/hawk/controller/AdminController.java~~26
+      responses:
+        default:
+          description: Default response
+    summary: path /admin/users
+  /api/basic/items/search/:
+    get:
+      description: src/main/java/hawk/api/basic/BasicAuthItemController.java~~23
+      responses:
+        default:
+          description: Default response
+    summary: path /api/basic/items/search/
+  /api/basic/items/search/{text}:
+    get:
+      description: src/main/java/hawk/api/basic/BasicAuthItemController.java~~29
+      parameters:
+      - description: path parameter
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /api/basic/items/search/{text}
+  /api/jwt/auth/signin:
+    post:
+      description: src/main/java/hawk/api/jwt/JwtAuthController.java~~43
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationRequest'
+        required: true
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/auth/signin
+  /api/jwt/items/search:
+    post:
+      description: src/main/java/hawk/api/jwt/JwtItemController.java~~41
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Search'
+        required: true
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/items/search
+  /api/jwt/items/search/:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtItemController.java~~28
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/items/search/
+  /api/jwt/items/search/{text}:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtItemController.java~~34
+      parameters:
+      - description: path parameter
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/items/search/{text}
+  /api/jwt/users/search/:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtUserController.java~~30
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/users/search/
+  /api/jwt/users/search/{text}:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtUserController.java~~36
+      parameters:
+      - description: path parameter
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/users/search/{text}
+  /api/jwt/users/search/bad/{text}:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtUserController.java~~42
+      parameters:
+      - description: path parameter
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /api/jwt/users/search/bad/{text}
+  /api/token/items/search/:
+    get:
+      description: src/main/java/hawk/api/token/TokenItemController.java~~23
+      responses:
+        default:
+          description: Default response
+    summary: path /api/token/items/search/
+  /api/token/items/search/{text}:
+    get:
+      description: src/main/java/hawk/api/token/TokenItemController.java~~29
+      parameters:
+      - description: path parameter
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /api/token/items/search/{text}
+  /basic-auth:
+    get:
+      description: src/main/java/hawk/controller/IndexController.java~~28
+      responses:
+        default:
+          description: Default response
+    summary: path /basic-auth
+  /hidden:
+    get:
+      description: src/main/java/hawk/controller/HiddenController.java~~11
+      responses:
+        default:
+          description: Default response
+    summary: path /hidden
+  /hidden/cypress:
+    get:
+      description: src/main/java/hawk/controller/HiddenController.java~~23
+      responses:
+        default:
+          description: Default response
+    summary: path /hidden/cypress
+  /hidden/hidden2:
+    get:
+      description: src/main/java/hawk/controller/HiddenController.java~~17
+      responses:
+        default:
+          description: Default response
+    summary: path /hidden/hidden2
+  /hidden/playwright:
+    get:
+      description: src/main/java/hawk/controller/HiddenController.java~~35
+      responses:
+        default:
+          description: Default response
+    summary: path /hidden/playwright
+  /hidden/selenium:
+    get:
+      description: src/main/java/hawk/controller/HiddenController.java~~29
+      responses:
+        default:
+          description: Default response
+    summary: path /hidden/selenium
+  /jwt-auth:
+    get:
+      description: src/main/java/hawk/controller/IndexController.java~~16
+      responses:
+        default:
+          description: Default response
+    summary: path /jwt-auth
+  /log4j:
+    get:
+      description: src/main/java/hawk/api/jwt/JwtLog4jController.java~~19
+      parameters:
+      - description: query parameter
+        in: query
+        name: text
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    summary: path /log4j
+  /login:
+    get:
+      description: src/main/java/hawk/controller/LoginController.java~~44
+      responses:
+        default:
+          description: Default response
+    summary: path /login
+  /login-code:
+    get:
+      description: src/main/java/hawk/controller/LoginController.java~~52
+      responses:
+        default:
+          description: Default response
+    summary: path /login-code
+  /login-form-multi:
+    get:
+      description: src/main/java/hawk/controller/LoginController.java~~61
+      responses:
+        default:
+          description: Default response
+    post:
+      description: src/main/java/hawk/controller/LoginController.java~~74
+      parameters:
+      - in: cookie
+        name: XLOGINID
+        required: true
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ExtraAuthenticationRequest'
+        required: true
+      responses:
+        default:
+          description: Default response
+    summary: path /login-form-multi
+  /payload/{size}:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~30
+      parameters:
+      - description: path parameter
+        in: path
+        name: size
+        required: true
+        schema:
+          type: integer
+      responses:
+        default:
+          description: Default response
+    summary: path /payload/{size}
+  /payload/stream/{size}:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~57
+      parameters:
+      - description: path parameter
+        in: path
+        name: size
+        required: true
+        schema:
+          type: integer
+      responses:
+        default:
+          description: Default response
+    summary: path /payload/stream/{size}
+  /payloads:
+    get:
+      description: src/main/java/hawk/controller/PayloadController.java~~45
+      responses:
+        default:
+          description: Default response
+    summary: path /payloads
+  /search:
+    get:
+      description: src/main/java/hawk/controller/SearchController.java~~29
+      responses:
+        default:
+          description: Default response
+    post:
+      description: src/main/java/hawk/controller/SearchController.java~~37
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Search'
+        required: true
+      responses:
+        default:
+          description: Default response
+    summary: path /search
+  /token-auth:
+    get:
+      description: src/main/java/hawk/controller/IndexController.java~~22
+      responses:
+        default:
+          description: Default response
+    summary: path /token-auth
+servers:
+- description: API server
+  url: https://localhost:9000
