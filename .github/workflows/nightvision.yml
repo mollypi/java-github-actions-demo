@@ -6,6 +6,7 @@ on:
 
 env:
   NIGHTVISION_TOKEN: ${{ secrets.NIGHTVISION_TOKEN }}
+  NIGHTVISION_TARGET: https://localhost:9000
   
 jobs:
   test:
