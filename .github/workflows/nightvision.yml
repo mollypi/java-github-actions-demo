@@ -19,10 +19,10 @@ jobs:
         run: make install-cli
 
       - name: (3) Run API Envy
-        run: nightvision extract-api-docs ./ -u https://localhost:9000
+        run: nightvision extract-api-docs ./ -u ${NIGHTVISION_TARGET}
 
       - name: (4) Start app
         run: docker-compose up -d; sleep 10
 
       - name: (5) Scan the API
-        run: nightvision scan https://localhost:9000
+        run: nightvision scan ${NIGHTVISION_TARGET}
