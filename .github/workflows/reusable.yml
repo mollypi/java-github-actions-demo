@@ -1,0 +1,64 @@
+name: scan
+
+on:
+  workflow_call:
+    inputs:
+      api_url:
+        description: which nightvision environment to run scan in
+        required: true
+        type: string
+    secrets:
+      nightvision_token:
+        description: nightvision api token
+        required: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install nv cli
+        run: |
+          cd /tmp
+          wget -c https://downloads.nightvision.net/binaries/latest/nightvision_latest_linux_amd64.tar.gz -O - | tar -xz
+          sudo mv nightvision /usr/bin
+          
+      - name: install semgrep
+        run: python -m pip install semgrep --user
+        
+      - name: start vuln app
+        run: docker-compose up -d; sleep 10
+        
+      - name: extract api spec
+        run: nightvision extract-api-docs ./ -u https://127.0.0.1:9000
+        
+      - name: start tcpdump
+        run: |
+          set -eux
+          mkdir /tmp/capture
+          sudo tcpdump -w /tmp/capture/dump.pcap &
+          PID=$!
+          echo "TCPDUMP_PID=$PID" >> $GITHUB_ENV    
+          
+      - name: scan
+        run: >-
+          nightvision
+          --verbose 
+          --api-url ${{ inputs.api_url }}
+          scan 
+          https://127.0.0.1:9000
+        env:
+          NIGHTVISION_TOKEN: ${{ secrets.nightvision_token }}
+          SSLKEYLOGFILE: /tmp/keylog
+
+      - run: kill $TCPDUMP_PID
+        if: ${{ failure() }}
+
+      # we archive the keylog and packet capture to inspect failures
+      - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
+        with:
+          name: capture
+          path: /tmp/capture
