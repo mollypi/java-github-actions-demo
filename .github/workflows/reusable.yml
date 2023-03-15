@@ -32,7 +32,7 @@ jobs:
         run: docker-compose up -d; sleep 10
         
       - name: extract api spec
-        run: nightvision extract-api-docs ./ -u https://127.0.0.1:9000
+        run: nightvision extract-api-docs ./ -u https://localhost:9000
         
       - name: start tcpdump
         run: |
@@ -48,7 +48,7 @@ jobs:
           --verbose 
           --api-url ${{ inputs.api_url }}
           scan 
-          https://127.0.0.1:9000
+          https://localhost:9000
         env:
           NIGHTVISION_TOKEN: ${{ secrets.nightvision_token }}
           SSLKEYLOGFILE: /tmp/keylog
