@@ -24,24 +24,24 @@ jobs:
           cd /tmp
           wget -c https://downloads.nightvision.net/binaries/latest/nightvision_latest_linux_amd64.tar.gz -O - | tar -xz
           sudo mv nightvision /usr/bin
-          
+
       - name: install semgrep
         run: python -m pip install semgrep --user
-        
+
       - name: start vuln app
         run: docker-compose up -d; sleep 10
-        
+
       - name: extract api spec
         run: nightvision extract-api-docs ./ -u https://localhost:9000
-        
+
       - name: start tcpdump
         run: |
           set -eux
           mkdir /tmp/capture
           sudo tcpdump -w /tmp/capture/dump.pcap &
           PID=$!
-          echo "TCPDUMP_PID=$PID" >> $GITHUB_ENV    
-          
+          echo "TCPDUMP_PID=$PID" >> $GITHUB_ENV
+
       - name: scan
         run: >-
           nightvision
