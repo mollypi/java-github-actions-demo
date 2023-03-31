@@ -26,3 +26,11 @@ jobs:
 
       - name: (5) Scan the API
         run: nightvision scan ${NIGHTVISION_TARGET}
+      
+      - uses: actions/checkout@v3
+
+      - name: (6) Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        if: success() || failure()
+        with:
+          sarif_file: results.sarif
