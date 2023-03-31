@@ -19,7 +19,7 @@ jobs:
         run: make install-cli
 
       - name: (3) Run API Envy
-        run: nightvision extract-api-docs ./ -u ${NIGHTVISION_TARGET}
+        run: nightvision extract-api-docs ./ -u ${NIGHTVISION_TARGET} --lang spring
 
       - name: (4) Start app
         run: docker-compose up -d; sleep 10
