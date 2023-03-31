@@ -19,10 +19,16 @@ jobs:
         run: make install-cli
 
       - name: (3) Run API Envy
-        run: nightvision extract-api-docs ./ -u ${NIGHTVISION_TARGET}
+        run: nightvision extract-api-docs ./ -u ${NIGHTVISION_TARGET} --lang spring
 
       - name: (4) Start app
         run: docker-compose up -d; sleep 10
 
       - name: (5) Scan the API
         run: nightvision scan ${NIGHTVISION_TARGET}
+
+      - name: (6) Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        if: success()
+        with:
+          sarif_file: results.sarif
