@@ -1,7 +1,8 @@
 repo_name: mollypi/java-github-actions-demo
 report_id: 8f8d2208282e5ae6adac142eb4b6a033
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-15T05:29:59+00:00'
+timestamp: '2024-01-05T08:41:43+00:00'
 requested_by: kmcquade
 provider: github
 branch: main
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -26,6 +28,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
 - name: Kotlin
   description: Statically typed Programming Language targeting JVM and JavaScript
@@ -35,6 +38,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/3750/pCfEzr6L.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
 - name: H2 Database
   description: A relational database management system written in Java
@@ -44,6 +48,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/3105/h2-logo_square_400x400.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo/blob/main/build.gradle
   detection_source: build.gradle
   last_updated_by: kcberg
   last_updated_on: 2022-02-06 16:05:16.000000000 Z
@@ -55,6 +60,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo/blob/main/build.gradle
   detection_source: build.gradle
   last_updated_by: KC Berg
   last_updated_on: 2022-07-06 12:36:08.000000000 Z
@@ -67,6 +73,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Virtual Machine Platforms & Containers
   image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -76,6 +83,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
 - name: GitHub Actions
   description: Automate your workflow from idea to production
@@ -85,7 +93,8 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
-  detection_source: ".github/workflows/reusable.yml"
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo/blob/main/.github/workflows/nightvision.yml
+  detection_source: ".github/workflows/nightvision.yml"
   last_updated_by: Elias Kickbush
   last_updated_on: 2023-03-31 07:01:31.000000000 Z
 - name: Gradle
@@ -97,7 +106,8 @@ tools:
   category: Build, Test, Deploy
   sub_category: Java Build Tools
   image_url: https://img.stackshare.io/service/975/gradlephant-social-black-bg.png
-  detection_source: gradlew.bat
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo/blob/main/build.gradle
+  detection_source: build.gradle
   last_updated_by: kberg
   last_updated_on: 2019-08-17 17:20:54.000000000 Z
 - name: Apache Camel
@@ -109,6 +119,7 @@ tools:
   category: Application Hosting
   sub_category: Platform as a Service
   image_url: https://img.stackshare.io/service/3276/xWt1RFo6_400x400.jpg
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo/blob/main/src/main/resources/application.properties
   detection_source: src/main/resources/application.properties
   last_updated_by: kberg
   last_updated_on: 2019-08-17 17:20:54.000000000 Z
@@ -121,4 +132,5 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/mollypi/java-github-actions-demo
   detection_source: Repo Metadata
